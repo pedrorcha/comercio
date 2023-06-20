@@ -29,6 +29,7 @@ public class LojaController {
 	produto.setPreco(6541.25);
 	
 	Produto produto2 = new Produto();
+	produto2.setId(146l);
 	produto2.setNome("xbox one");
 	produto2.setCodigoBarras("sdlfkj349234");
 	produto2.setPreco(6540.23);
@@ -37,7 +38,7 @@ public class LojaController {
 	listaDeProdutos.add(produto);
 	listaDeProdutos.add(produto2);
 	
-	model.addAttribute("produtos", listaDeProdutos);
+	model.addAttribute("listaDeProdutos", listaDeProdutos);
 	
 	return "produtos";
 	}
