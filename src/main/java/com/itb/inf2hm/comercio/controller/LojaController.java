@@ -14,25 +14,28 @@ import com.itb.inf2hm.comercio.model.Produto;
 @RequestMapping("/comercio/produtos")
 public class LojaController {
 	
-	List<Produto> listaDeProdutos = new ArrayList<Produto>();
-	
-	
 	
 @GetMapping("/listar")
 	public String listarProdutos(Model model) {
 		// System.out.println("Lista de Produtos");   // Não conseguirá, de fato, acessar o model	
+	
+	List<Produto> listaDeProdutos = new ArrayList<Produto>();
+
 	
 	Produto produto = new Produto();
 	produto.setId(145l);
 	produto.setNome("Televisor 70' Samsung");
 	produto.setCodigoBarras("JFASJLKJ23OJ94");
 	produto.setPreco(6541.25);
+	produto.setDescricao("Televisão para a família inteira");
 	
 	Produto produto2 = new Produto();
 	produto2.setId(146l);
 	produto2.setNome("xbox one");
 	produto2.setCodigoBarras("sdlfkj349234");
 	produto2.setPreco(6540.23);
+	produto2.setDescricao("O melhor console de todos os tempos");
+
 	
 	// Adicionando os produtos no ArrayList
 	listaDeProdutos.add(produto);
@@ -44,7 +47,7 @@ public class LojaController {
 	}
 
 
-@GetMapping("/novo-produto")
+	@GetMapping("/novo-produto")
 
 	public String novoProduto() {
 	return "novo-produto";
