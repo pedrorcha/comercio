@@ -6,6 +6,7 @@ import java.util.List;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.itb.inf2hm.comercio.model.Produto;
@@ -14,12 +15,13 @@ import com.itb.inf2hm.comercio.model.Produto;
 @RequestMapping("/comercio/produtos")
 public class LojaController {
 	
+	List<Produto> listaDeProdutos = new ArrayList<Produto>();
+
 	
 @GetMapping("/listar")
 	public String listarProdutos(Model model) {
 		// System.out.println("Lista de Produtos");   // Não conseguirá, de fato, acessar o model	
 	
-	List<Produto> listaDeProdutos = new ArrayList<Produto>();
 
 	
 	Produto produto = new Produto();
@@ -48,9 +50,17 @@ public class LojaController {
 
 
 	@GetMapping("/novo-produto")
-
-	public String novoProduto() {
-	return "novo-produto";
+	public String novoProduto (Produto produto, Model model) {
+		model.addAttribute("produto", produto);
+		return "novo-produto";
+	}
+	
+	@PostMapping("add-prod")
+	public String gravarNovoProduto(Produto produto) {
+		
+		listaDeProdutos.add(produto);
+		
+		return "redirect:/comercio//produtos/listar";
 	}
 
 	
