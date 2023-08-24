@@ -22,7 +22,7 @@ public class LojaController {
 	public String listarProdutos(Model model) {
 		// System.out.println("Lista de Produtos");   // Não conseguirá, de fato, acessar o model	
 	
-
+	
 	
 	Produto produto = new Produto();
 	produto.setId(145l);
